@@ -1,0 +1,182 @@
+[
+  {
+    "id": "1",
+    "title": "Software Engineer",
+    "company": "Tech Corp",
+    "description": "Python developer with experience in FastAPI and React. Knowledge of SQL and Docker is a plus.",
+    "posting_date": "2024-03-01",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/1"
+  },
+  {
+    "id": "2",
+    "title": "Data Scientist",
+    "company": "Data Inc",
+    "description": "ML engineer with skills in Scikit-learn, NLP, and Python. Experience with resume parsing is preferred.",
+    "posting_date": "2024-03-05",
+    "repost_count": 5,
+    "apply_link": "https://example.com/jobs/2"
+  },
+  {
+    "id": "3",
+    "title": "Frontend Developer",
+    "company": "Creative Solutions",
+    "description": "React specialist with Tailwind CSS experience. Knowledge of Vite and TypeScript required.",
+    "posting_date": "2024-03-10",
+    "repost_count": 2,
+    "apply_link": "https://example.com/jobs/3"
+  },
+  {
+    "id": "4",
+    "title": "ML Ops Engineer",
+    "company": "AI Global",
+    "description": "Automate ML pipelines using Python, Docker, and AWS. Experience with FastAPI for model serving.",
+    "posting_date": "2024-02-15",
+    "repost_count": 10,
+    "apply_link": "https://example.com/jobs/4"
+  },
+  {
+    "id": "5",
+    "title": "Backend Developer",
+    "company": "Fast Systems",
+    "description": "FastAPI expert. Build scalable APIs with Python and MongoDB. Familiarity with Pydantic.",
+    "posting_date": "2024-03-12",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/5"
+  },
+  {
+    "id": "6",
+    "title": "AI Researcher",
+    "company": "Deep Labs",
+    "description": "Research new NLP models. Strong background in Python and PyTorch/TensorFlow. Knowledge of transformers.",
+    "posting_date": "2024-03-08",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/6"
+  },
+  {
+    "id": "7",
+    "title": "Full Stack Developer",
+    "company": "Web Pro",
+    "description": "Python, React, and MongoDB. Experience in building complete web applications from scratch.",
+    "posting_date": "2024-01-20",
+    "repost_count": 8,
+    "apply_link": "https://example.com/jobs/7"
+  },
+  {
+    "id": "8",
+    "title": "Database Administrator",
+    "company": "Data Flow",
+    "description": "Manage MongoDB clusters. Optimize queries and ensure data security.",
+    "posting_date": "2024-03-14",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/8"
+  },
+  {
+    "id": "9",
+    "title": "Product Manager",
+    "company": "Innovate Ltd",
+    "description": "Define product roadmap for AI tools. Coordinate between engineering and marketing teams.",
+    "posting_date": "2024-03-11",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/9"
+  },
+  {
+    "id": "10",
+    "title": "Python Developer",
+    "company": "Scripting Experts",
+    "description": "Automation scripts with Python. Web scraping experience with BeautifulSoup.",
+    "posting_date": "2024-03-02",
+    "repost_count": 3,
+    "apply_link": "https://example.com/jobs/10"
+  },
+  {
+    "id": "11",
+    "title": "Cloud Architect",
+    "company": "Sky High Tech",
+    "description": "Design and manage cloud infrastructure on AWS and Azure. Experience with Terraform and Kubernetes.",
+    "posting_date": "2024-03-16",
+    "repost_count": 0,
+    "apply_link": "https://example.com/jobs/11"
+  },
+  {
+    "id": "12",
+    "title": "Cybersecurity Analyst",
+    "company": "Secure Net",
+    "description": "Monitor and protect network systems. Experience with firewalls, intrusion detection, and incident response.",
+    "posting_date": "2024-03-17",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/12"
+  },
+  {
+    "id": "13",
+    "title": "UI/UX Designer",
+    "company": "Design Hub",
+    "description": "Create intuitive user interfaces and experiences. Proficiency in Figma and Adobe Creative Suite.",
+    "posting_date": "2024-03-18",
+    "repost_count": 0,
+    "apply_link": "https://example.com/jobs/13"
+  },
+  {
+    "id": "14",
+    "title": "DevOps Engineer",
+    "company": "Cloud Ops",
+    "description": "Implement CI/CD pipelines and manage server infrastructure. Experience with Jenkins, Docker, and Ansible.",
+    "posting_date": "2024-03-19",
+    "repost_count": 2,
+    "apply_link": "https://example.com/jobs/14"
+  },
+  {
+    "id": "15",
+    "title": "Mobile App Developer",
+    "company": "App Works",
+    "description": "Develop native mobile applications for iOS and Android using React Native or Flutter.",
+    "posting_date": "2024-03-20",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/15"
+  },
+  {
+    "id": "16",
+    "title": "Data Analyst",
+    "company": "Insight Data",
+    "description": "Analyze large datasets to provide actionable business insights. Proficiency in SQL, Excel, and Tableau.",
+    "posting_date": "2024-03-21",
+    "repost_count": 0,
+    "apply_link": "https://example.com/jobs/16"
+  },
+  {
+    "id": "17",
+    "title": "Machine Learning Engineer",
+    "company": "AI Labs",
+    "description": "Build and deploy machine learning models. Experience with Python, TensorFlow, and large-scale data processing.",
+    "posting_date": "2024-03-22",
+    "repost_count": 4,
+    "apply_link": "https://example.com/jobs/17"
+  },
+  {
+    "id": "18",
+    "title": "Quality Assurance Engineer",
+    "company": "Test Tech",
+    "description": "Develop and execute automated test scripts. Experience with Selenium and JMeter.",
+    "posting_date": "2024-03-23",
+    "repost_count": 1,
+    "apply_link": "https://example.com/jobs/18"
+  },
+  {
+    "id": "19",
+    "title": "Systems Administrator",
+    "company": "Network Solutions",
+    "description": "Manage and maintain internal network and server infrastructure. Experience with Linux and Windows Server.",
+    "posting_date": "2024-03-24",
+    "repost_count": 0,
+    "apply_link": "https://example.com/jobs/19"
+  },
+  {
+    "id": "20",
+    "title": "Digital Marketing Specialist",
+    "company": "Market Growth",
+    "description": "Develop and execute digital marketing campaigns. Experience with SEO, SEM, and social media advertising.",
+    "posting_date": "2024-03-25",
+    "repost_count": 2,
+    "apply_link": "https://example.com/jobs/20"
+  }
+]

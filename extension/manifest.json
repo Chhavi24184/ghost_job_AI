@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Ghost Job AI Detector",
+  "version": "1.0",
+  "description": "Detect ghost jobs on LinkedIn and other job boards.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/jobs/*", "*://*.indeed.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["http://localhost:8000/*"]
+}
