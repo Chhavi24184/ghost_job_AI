@@ -1,5 +1,11 @@
-import { useState, useEffect } from 'react'
+
+import { useState } from 'react'
 import viteLogo from './assets/vite.svg'
+
+// --- Backend Configuration ---
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || 'http://localhost:8000'
+).replace(/\/$/, '')
 
 // --- Types ---
 interface JobMatch {
@@ -50,7 +56,7 @@ function HomePage({ onStart, onLearnMore }: { onStart: () => void, onLearnMore: 
         >
           Get Started
         </button>
-        <button 
+        <button
           onClick={onLearnMore}
           className="border border-slate-300 px-8 py-3 rounded-xl font-bold hover:bg-slate-50"
         >
@@ -65,7 +71,7 @@ function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">About Ghost Job AI</h2>
-      
+
       <div className="grid gap-8 md:grid-cols-2">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-xl font-bold text-purple-600 mb-4">What is a Ghost Job?</h3>
@@ -91,12 +97,12 @@ function AboutPage() {
           </ul>
         </div>
       </div>
-      
+
       <div className="mt-12 bg-purple-600 text-white p-8 rounded-3xl text-center">
         <h3 className="text-2xl font-bold mb-4">Ready to find a real job?</h3>
         <p className="mb-6 opacity-90">Our tool scans live job boards to bring you the best verified matches.</p>
-        <button 
-          onClick={() => window.location.reload()} 
+        <button
+          onClick={() => window.location.reload()}
           className="bg-white text-purple-600 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all"
         >
           Back to Home
@@ -112,30 +118,36 @@ function UploadPage({ onResults }: { onResults: (results: JobMatch[]) => void })
   const [jobField, setJobField] = useState('Software Engineer')
 
   const handleUpload = async () => {
-    if (!file) return
+    if (!file) {
+      alert('Please select your resume first.')
+      return
+    }
+
     setLoading(true)
+
     const formData = new FormData()
     formData.append('file', file)
     formData.append('query', jobField)
 
     try {
-      const response = await fetch('http://localhost:8000/upload-resume', {
+      const response = await fetch(`${API_BASE_URL}/upload-resume`, {
         method: 'POST',
         body: formData,
       })
-      
+
       const data = await response.json()
 
       if (!response.ok) {
-        // Show the specific error message from the backend (e.g., "python-docx not installed")
-        alert(data.detail || "Error processing resume")
+        alert(data.detail || 'Error processing resume')
         return
       }
 
       onResults(data)
     } catch (error) {
-      console.error('Error uploading:', error)
-      alert("Error connecting to backend. Make sure it's running on localhost:8000")
+      console.error('Error uploading resume:', error)
+      alert(
+        `Unable to connect to Ghost Job AI backend. Please check your internet connection or try again later. Backend: ${API_BASE_URL}`
+      )
     } finally {
       setLoading(false)
     }
@@ -145,7 +157,7 @@ function UploadPage({ onResults }: { onResults: (results: JobMatch[]) => void })
     <div className="max-w-2xl mx-auto py-12">
       <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-100">
         <h2 className="text-2xl font-bold mb-6 text-center text-slate-900 dark:text-white">Analyze Your Resume</h2>
-        
+
         <div className="mb-6">
           <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
             Target Job Field
@@ -166,15 +178,16 @@ function UploadPage({ onResults }: { onResults: (results: JobMatch[]) => void })
           </svg>
           <label className="cursor-pointer text-center">
             <span className="text-purple-600 font-semibold">Click to upload resume (PDF or DOCX)</span>
-            <input 
-              type="file" 
-              className="hidden" 
-              accept=".pdf,.docx" 
-              onChange={(e) => setFile(e.target.files?.[0] || null)} 
+            <input
+              type="file"
+              className="hidden"
+              accept=".pdf,.docx"
+              onChange={(e) => setFile(e.target.files?.[0] || null)}
             />
           </label>
           {file && <p className="mt-4 font-medium text-slate-700">{file.name}</p>}
         </div>
+
         <button
           onClick={handleUpload}
           disabled={!file || loading}
@@ -207,17 +220,18 @@ function ResultsPage({ results }: { results: JobMatch[] }) {
                   <span className="text-xl font-black text-purple-600">{job.ats_score}%</span>
                 </div>
                 <div className="flex items-center gap-2">
-                   <span className="text-sm font-medium text-slate-500">Ghost Score:</span>
-                   <span className={`text-sm font-bold px-2 py-0.5 rounded-full border ${
-                     job.ghost_label === 'Ghost' ? 'bg-red-50 text-red-600 border-red-200' :
-                     job.ghost_label === 'Risky' ? 'bg-yellow-50 text-yellow-600 border-yellow-200' :
-                     'bg-green-50 text-green-600 border-green-200'
-                   }`}>
-                     {job.ghost_score}% ({job.ghost_label})
-                   </span>
+                  <span className="text-sm font-medium text-slate-500">Ghost Score:</span>
+                  <span className={`text-sm font-bold px-2 py-0.5 rounded-full border ${
+                    job.ghost_label === 'Ghost' ? 'bg-red-50 text-red-600 border-red-200' :
+                    job.ghost_label === 'Risky' ? 'bg-yellow-50 text-yellow-600 border-yellow-200' :
+                    'bg-green-50 text-green-600 border-green-200'
+                  }`}>
+                    {job.ghost_score}% ({job.ghost_label})
+                  </span>
                 </div>
               </div>
             </div>
+
             <div className="flex flex-wrap gap-2 mb-6">
               {job.common_skills.map((skill, idx) => (
                 <span key={idx} className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded">
@@ -225,6 +239,7 @@ function ResultsPage({ results }: { results: JobMatch[] }) {
                 </span>
               ))}
             </div>
+
             <div className="flex justify-between items-center">
               <p className="text-xs text-slate-400">Smart Apply enabled: Autofills your info</p>
               <a
@@ -257,17 +272,20 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       <Navbar onNavigate={setCurrentPage} />
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {currentPage === 'home' && (
-          <HomePage 
-            onStart={() => setCurrentPage('upload')} 
+          <HomePage
+            onStart={() => setCurrentPage('upload')}
             onLearnMore={() => setCurrentPage('about')}
           />
         )}
+
         {currentPage === 'about' && <AboutPage />}
         {currentPage === 'upload' && <UploadPage onResults={handleResults} />}
         {currentPage === 'results' && <ResultsPage results={results} />}
       </main>
+
       <footer className="mt-20 py-10 border-t border-slate-200 text-center">
         <p className="text-slate-400 text-sm">© 2024 Ghost Job AI - Built with FastAPI & React</p>
       </footer>
